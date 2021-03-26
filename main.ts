@@ -1,47 +1,60 @@
 input.onButtonPressed(Button.A, function () {
-    if (power < 100) {
-        power += 20
-        radio.sendNumber(power)
+    if (motor < 100) {
+        motor += 20
+        radio.sendValue("name", motor)
     }
 })
 // south
 input.onGesture(Gesture.LogoUp, function () {
-    if (power > 0) {
-        power += -20
-        radio.sendNumber(power)
+    if (motor > 0) {
+        motor += -20
+        radio.sendValue("name", motor)
     }
 })
+input.onGesture(Gesture.TiltLeft, function () {
+    servo += 30
+    radio.sendValue("name", servo)
+})
 input.onButtonPressed(Button.AB, function () {
-    if (power > 0) {
-        power = 100
-        radio.sendNumber(power)
+    if (motor > 0) {
+        motor = 100
+        radio.sendValue("name", motor)
     }
 })
 input.onButtonPressed(Button.B, function () {
-    if (power > 0) {
-        power += -20
-        radio.sendNumber(power)
+    if (motor > 0) {
+        motor += -20
+        radio.sendValue("name", motor)
     }
 })
 input.onGesture(Gesture.Shake, function () {
-    power = 0
-    radio.sendNumber(power)
+    motor = 0
+    radio.sendValue("name", motor)
+})
+input.onGesture(Gesture.TiltRight, function () {
+    servo += -30
+    radio.sendValue("name", servo)
 })
 // north
 input.onGesture(Gesture.LogoDown, function () {
-    if (power < 100) {
-        power += 20
-        radio.sendNumber(power)
+    if (motor < 100) {
+        motor += 20
+        radio.sendValue("name", motor)
     }
 })
-let power = 0
+input.onLogoEvent(TouchButtonEvent.Touched, function () {
+    servo = 0
+    radio.sendValue("name", servo)
+})
+let motor = 0
+let servo = 0
 radio.setGroup(1)
 radio.setTransmitPower(7)
-radio.sendNumber(0)
-power = 0
+servo = 0
+motor = 0
 basic.forever(function () {
     led.plotBarGraph(
-    power,
+    motor,
     100
     )
 })
