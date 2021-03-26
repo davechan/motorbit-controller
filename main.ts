@@ -11,6 +11,12 @@ input.onGesture(Gesture.LogoUp, function () {
         radio.sendNumber(power)
     }
 })
+input.onButtonPressed(Button.AB, function () {
+    if (power > 0) {
+        power = 100
+        radio.sendNumber(power)
+    }
+})
 input.onButtonPressed(Button.B, function () {
     if (power > 0) {
         power += -20
