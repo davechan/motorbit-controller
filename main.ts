@@ -16,8 +16,8 @@ input.onGesture(Gesture.TiltLeft, function () {
     radio.sendValue("servo", angle)
 })
 input.onButtonPressed(Button.AB, function () {
-    if (speed > 0) {
-        speed = 100
+    if (speed < 100) {
+        speed += 30
         radio.sendValue("motor", speed)
     }
 })
@@ -28,7 +28,7 @@ input.onButtonPressed(Button.B, function () {
     }
 })
 input.onGesture(Gesture.Shake, function () {
-    speed = 0
+    speed += -25
     radio.sendValue("motor", speed)
 })
 input.onGesture(Gesture.TiltRight, function () {
