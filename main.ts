@@ -12,7 +12,7 @@ input.onGesture(Gesture.LogoUp, function () {
     }
 })
 input.onGesture(Gesture.TiltLeft, function () {
-    angle += 15
+    angle += -15
     radio.sendValue("servo", angle)
 })
 input.onButtonPressed(Button.AB, function () {
@@ -32,7 +32,7 @@ input.onGesture(Gesture.Shake, function () {
     radio.sendValue("motor", speed)
 })
 input.onGesture(Gesture.TiltRight, function () {
-    angle += -15
+    angle += 15
     radio.sendValue("servo", angle)
 })
 // north
