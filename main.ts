@@ -12,7 +12,7 @@ input.onGesture(Gesture.LogoUp, function () {
     }
 })
 input.onGesture(Gesture.TiltLeft, function () {
-    angle += 30
+    angle += 15
     radio.sendValue("servo", angle)
 })
 input.onButtonPressed(Button.AB, function () {
@@ -32,7 +32,7 @@ input.onGesture(Gesture.Shake, function () {
     radio.sendValue("motor", speed)
 })
 input.onGesture(Gesture.TiltRight, function () {
-    angle += -30
+    angle += -15
     radio.sendValue("servo", angle)
 })
 // north
@@ -43,14 +43,15 @@ input.onGesture(Gesture.LogoDown, function () {
     }
 })
 input.onLogoEvent(TouchButtonEvent.Touched, function () {
-    angle = 0
+    angle = 90
     radio.sendValue("servo", angle)
 })
 let speed = 0
 let angle = 0
 radio.setGroup(1)
 radio.setTransmitPower(7)
-angle = 0
+angle = 90
+radio.sendValue("servo", angle)
 speed = 0
 basic.forever(function () {
     led.plotBarGraph(
