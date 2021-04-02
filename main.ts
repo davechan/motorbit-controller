@@ -9,8 +9,10 @@ input.onGesture(Gesture.TiltLeft, function () {
     radio.sendValue("servo", angle)
 })
 input.onSound(DetectedSound.Loud, function () {
-    speed += -25
-    radio.sendValue("motor", speed)
+    if (speed >= 0) {
+        speed += -25
+        radio.sendValue("motor", speed)
+    }
 })
 input.onButtonPressed(Button.AB, function () {
     if (speed < 100) {
