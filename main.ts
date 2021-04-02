@@ -40,7 +40,7 @@ radio.setGroup(1)
 radio.setTransmitPower(7)
 angle = 90
 radio.sendValue("servo", angle)
-input.setSoundThreshold(SoundThreshold.Loud, 145)
+input.setSoundThreshold(SoundThreshold.Loud, 193)
 speed = 0
 basic.forever(function () {
     led.plotBarGraph(
